@@ -26,13 +26,39 @@ internal class Program
         #endregion
 
         #region theorical 3
-        //a)
+        //a) static field: variable that is shared among all instances of a class, it is not tied to any specific instance. It is used to store data that is common to all instances of the class.
+        //   instance field: variable belongs to a specific object, every obj gets his own copy of this variable
 
-        //b)
+        //b) static method: a method that does not need an object to be called
+        //   No, it can't access instance members directly
 
-        //c)
+        //c) static constructor: constructor used to implement static members in class
+        //   while excuting the is been called only one time(the first use of the class in the project), its called automatically and cant be called manually
 
-        //d)
+        //d) static class: declared with the static keyword, it can only contain static members and cannot be instantiated.
+        //   It is used to group related methods and properties that do not require an instance of the class to be used.
+        #endregion
+
+        #region theorical 4
+        //a) extension method: is a method allows us to add new features to class and be called by any object 
+
+        //b) "this" keyword 
+
+        //c) it should be declared in a static class 
+
+        //d) No, bc it's considered external method
+        #endregion
+
+        #region theorical 5
+        //a) partial class: a class allowed to separate and write the code across multiple files using keyword "partial"
+
+        //b) for organizatinal reasons , allow more than one developer to work on thier own methods
+        //   for same class without contingency and separate the auto code that is done by code generators from dev code
+
+        //c) partial method: a method declared and assigned in one file then being implemented in another for the same class
+
+        //d) if the fun is "void" the complier removes the fun calls and declares as it never happened
+        //   else a complier error happens
         #endregion
     }
 }
