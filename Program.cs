@@ -60,5 +60,19 @@ internal class Program
         //d) if the fun is "void" the complier removes the fun calls and declares as it never happened
         //   else a complier error happens
         #endregion
+        //*************************************//
+
+        #region practical 1
+        //StandardShipment ship01 = new StandardShipment()
+        //{ 
+        //    TrackingCode="sh01",
+        //    Description="phone"
+        //};
+        //StandardShipment ship02 = ship01;
+        //StandardShipment copiedShip = ship01.CopyShipment();
+
+        #endregion
+
+
     }
 }
