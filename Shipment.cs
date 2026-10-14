@@ -10,6 +10,12 @@ public class Shipment
     #endregion
 
     #region constructors
+    static Shipment()
+    {
+        totalShipmentsCreated =0;
+        Console.WriteLine("static constructor initialized");
+    }
+
     public Shipment()
     {
         totalShipmentsCreated++;
@@ -175,6 +181,11 @@ public class Shipment
             };
         }
         return CopiedShipment;
+    }
+
+    public static int GetTotalShipmentsCreated()
+    {
+        return TotalShipmentsCreated;
     }
     #endregion
 }

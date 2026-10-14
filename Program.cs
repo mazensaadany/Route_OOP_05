@@ -134,6 +134,10 @@ internal class Program
         Console.WriteLine($"Total Shipments Created : {Shipment.TotalShipmentsCreated}");
         #endregion
         Console.WriteLine("======================================");
-        #region practical 5
+        #region practical 6
+        Console.WriteLine($"Total Shipments Created :{Shipment.GetTotalShipmentsCreated()}");
+        #endregion
+        Console.WriteLine("======================================");
+        
     }
 }
