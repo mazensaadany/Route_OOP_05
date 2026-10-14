@@ -13,7 +13,7 @@ public class InternationalShipment:Shipment, IInsurable, ITrackable
         CustomsFee = customsFee;
     }
 
-    public InternationalShipment(): base(string.Empty, string.Empty, 0m, 0m, default)
+    public InternationalShipment(): base(string.Empty, string.Empty, 0m, 0m, default!)
     {
     }
     #endregion

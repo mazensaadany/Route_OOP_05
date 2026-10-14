@@ -1,6 +1,6 @@
 ﻿namespace Route_OOP_05;
 
-public struct DeliveryAddress
+public class DeliveryAddress
 {
     private string? city;
     private string? street;
@@ -11,6 +11,10 @@ public struct DeliveryAddress
         City = city;
         Street = street;
         BuildingNumber = buildNum;
+    }
+
+    public DeliveryAddress()
+    {
     }
 
     public string GetfullAdress()

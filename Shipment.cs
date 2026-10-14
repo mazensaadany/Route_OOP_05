@@ -1,5 +1,5 @@
 ﻿namespace Route_OOP_05;
-public abstract class Shipment
+public class Shipment
 {
     #region fields
     private string? trackingCode;
@@ -9,6 +9,14 @@ public abstract class Shipment
     #endregion
 
     #region constructors
+    public Shipment()
+    {
+        TrackingCode = null;
+        Description = "unKnown";
+        Weight = 1;
+        DeliveryFee = 50;
+        Destination = new DeliveryAddress();
+    }
 
     public Shipment(string track)
     {
@@ -96,7 +104,7 @@ public abstract class Shipment
         }
     }
 
-    public abstract decimal EstimatedCost { get; }
+    public virtual decimal EstimatedCost { get; }
     #endregion
 
     #region methods
@@ -110,7 +118,16 @@ public abstract class Shipment
         return DeliveryFee;
     }
 
-    public abstract void PrintShipment();
+    public virtual void PrintShipment()
+    {
+        Console.WriteLine($"Destination is :{Destination}");
+        Console.WriteLine($"Tracking code : {TrackingCode}");
+        Console.WriteLine($"Description : {Description}");
+        Console.WriteLine($"Weight : {Weight}");
+        Console.WriteLine($"Delivery Fee : {DeliveryFee}");
+        Console.WriteLine($"Estimated Cost : {EstimatedCost}");
+        Console.WriteLine("================================");
+    }
 
     public void Weight_update(decimal newWeight)
     {
@@ -127,11 +144,18 @@ public abstract class Shipment
             Weight = newWeight + extraPack;
         }
     }
-   
-    //public Shipment CopyShipment()
-    //{
-        
-    //}
+
+    public Shipment CopyShipment()
+    {
+        return new Shipment
+        {
+            TrackingCode=this.TrackingCode,
+            Description =this.Description,
+            Weight =this.Weight,
+        };
+    }
+
+    public Shipment ShallowCopy() => (Shipment)this.MemberwiseClone();
     #endregion
 }
 

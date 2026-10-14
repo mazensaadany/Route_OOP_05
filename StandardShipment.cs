@@ -3,7 +3,7 @@
 public class StandardShipment : Shipment, IInsurable, ITrackable
 {
     #region constructors
-    public StandardShipment(): base(string.Empty, string.Empty, 0m, 0m, default)
+    public StandardShipment(): base(string.Empty, string.Empty, 0m, 0m, default!)
     {
     }
 

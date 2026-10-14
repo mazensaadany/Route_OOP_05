@@ -3,7 +3,7 @@
 public class PriorityInternationalShipment : InternationalShipment
 {
     #region constructors
-    public PriorityInternationalShipment() : base(string.Empty, string.Empty, 0m, 0m, default, string.Empty, 0m)
+    public PriorityInternationalShipment() : base(string.Empty, string.Empty, 0m, 0m, default!, string.Empty, 0m)
     {
     }
     #endregion

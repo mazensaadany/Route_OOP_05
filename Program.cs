@@ -1,4 +1,6 @@
-﻿namespace Route_OOP_05;
+﻿using System;
+
+namespace Route_OOP_05;
 internal class Program
 {
     static void Main(string[] args)
@@ -63,16 +65,48 @@ internal class Program
         //*************************************//
 
         #region practical 1
-        //StandardShipment ship01 = new StandardShipment()
-        //{ 
-        //    TrackingCode="sh01",
-        //    Description="phone"
-        //};
-        //StandardShipment ship02 = ship01;
-        //StandardShipment copiedShip = ship01.CopyShipment();
+        StandardShipment ship01 = new StandardShipment()
+        {
+            TrackingCode = "sh01",
+            Description = "phone"
+        };
+        Shipment ship02 = ship01;
+        Shipment copiedShip = ship01.CopyShipment();
 
+        Console.WriteLine("==========================================");
+        Console.WriteLine("Object Copying");
+        Console.WriteLine("==========================================");
+        Console.WriteLine($"Original Shipment Code : {ship01.TrackingCode}");
+        Console.WriteLine($"Assigned Shipment Code : {ship02.TrackingCode}");
+        Console.WriteLine($"Copied Shipment Code   : {copiedShip.TrackingCode}");
+
+        Console.WriteLine($"HashCode of original:{ship01.GetHashCode()}");
+        Console.WriteLine($"HashCode of ref copy:{ship02.GetHashCode()}");
+        Console.WriteLine($"HashCode of method copy:{copiedShip.GetHashCode()}");
         #endregion
 
+        #region practical 2
+        StandardShipment STship01 = new StandardShipment()
+        {
+            TrackingCode = "1",
+            Destination = new DeliveryAddress("giza","bahr",15 )
+        };
 
+        Shipment ShallowShip = STship01.ShallowCopy();
+
+        Console.WriteLine($"Original Shipment Address : {STship01.Destination?.City}");
+        Console.WriteLine($"Copied Shipment Address   : {ShallowShip.Destination?.City}");
+
+        if (ShallowShip.Destination != null)
+        {
+            ShallowShip.Destination.City = "Giza";
+        }
+        Console.WriteLine("==============================");
+        Console.WriteLine($"New Copied Shipment Address : {ShallowShip.Destination?.City}");
+        #endregion
+
+        #region practical 3
+
+        #endregion
     }
 }
