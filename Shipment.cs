@@ -156,6 +156,21 @@ public class Shipment
     }
 
     public Shipment ShallowCopy() => (Shipment)this.MemberwiseClone();
+
+    public Shipment DeepCopy()
+    {
+        Shipment CopiedShipment = (Shipment)this.MemberwiseClone();
+        if (this.Destination != null)
+        {
+            CopiedShipment.Destination = new DeliveryAddress
+            {
+                City = this.Destination.City,
+                Street = this.Destination.Street,
+                BuildingNumber = this.Destination.BuildingNumber
+            };
+        }
+        return CopiedShipment;
+    }
     #endregion
 }
 

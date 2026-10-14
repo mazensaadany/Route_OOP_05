@@ -106,7 +106,26 @@ internal class Program
         #endregion
 
         #region practical 3
+        Shipment shipment02 = new Shipment()
+        {
+            TrackingCode = "SH_512",
+            Destination = new DeliveryAddress { City = "Cairo", Street = "Naser St", BuildingNumber = 10 }
+        };
 
+        Shipment DeepCopiedShip = shipment02.DeepCopy();
+
+        Console.WriteLine($"Original Shipment Address : {shipment02.Destination?.City}");
+        Console.WriteLine($"Copied Shipment Address   : {DeepCopiedShip.Destination?.City}");
+
+        bool sameAddressObject = ReferenceEquals(shipment02.Destination, DeepCopiedShip.Destination);
+        Console.WriteLine($"Same DeliveryAddress Object : {sameAddressObject}");
+
+        DeepCopiedShip.Destination.City = "Giza";
+        Console.WriteLine($"Original Shipment Address : {shipment02.Destination?.City}");
+        Console.WriteLine($"Copied Shipment Address   : {DeepCopiedShip.Destination?.City}");
+
+        bool sameAddressObject2 = ReferenceEquals(shipment02.Destination, DeepCopiedShip.Destination);
+        Console.WriteLine($"Same DeliveryAddress Object : {sameAddressObject2}");
         #endregion
     }
 }
