@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Route_OOP_05;
+﻿namespace Route_OOP_05;
 internal class Program
 {
     static void Main(string[] args)
@@ -89,7 +87,7 @@ internal class Program
         StandardShipment STship01 = new StandardShipment()
         {
             TrackingCode = "1",
-            Destination = new DeliveryAddress("giza","bahr",15 )
+            Destination = new DeliveryAddress("cairo","bahr",15 )
         };
 
         Shipment ShallowShip = STship01.ShallowCopy();
@@ -101,10 +99,10 @@ internal class Program
         {
             ShallowShip.Destination.City = "Giza";
         }
-        Console.WriteLine("==============================");
+        Console.WriteLine("-----------------");
         Console.WriteLine($"New Copied Shipment Address : {ShallowShip.Destination?.City}");
         #endregion
-
+        Console.WriteLine("======================================");
         #region practical 3
         Shipment shipment02 = new Shipment()
         {
@@ -127,5 +125,15 @@ internal class Program
         bool sameAddressObject2 = ReferenceEquals(shipment02.Destination, DeepCopiedShip.Destination);
         Console.WriteLine($"Same DeliveryAddress Object : {sameAddressObject2}");
         #endregion
+        Console.WriteLine("======================================");
+        #region practical 4
+        Shipment shipment_01 = new Shipment();
+        StandardShipment shipment_02 = new StandardShipment();
+        InternationalShipment shipment_03 = new InternationalShipment();
+
+        Console.WriteLine($"Total Shipments Created : {Shipment.TotalShipmentsCreated}");
+        #endregion
+        Console.WriteLine("======================================");
+        #region practical 5
     }
 }

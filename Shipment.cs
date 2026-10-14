@@ -6,11 +6,13 @@ public class Shipment
     private string? description;
     private decimal weight;
     private decimal deliveryFee;
+    private static int totalShipmentsCreated=0;
     #endregion
 
     #region constructors
     public Shipment()
     {
+        totalShipmentsCreated++;
         TrackingCode = null;
         Description = "unKnown";
         Weight = 1;
@@ -18,7 +20,7 @@ public class Shipment
         Destination = new DeliveryAddress();
     }
 
-    public Shipment(string track)
+    public Shipment(string track) : this()
     {
         TrackingCode = track;
         Description = "unKnown";
@@ -27,7 +29,7 @@ public class Shipment
         Destination= new DeliveryAddress();
     }
 
-    public Shipment(string track, string desc, decimal w8, decimal fee, DeliveryAddress Dest)
+    public Shipment(string track, string desc, decimal w8, decimal fee, DeliveryAddress Dest):  this()
     {
         TrackingCode = track;
         Description = desc;
@@ -38,7 +40,10 @@ public class Shipment
     #endregion
 
     #region properties
-
+    public static int TotalShipmentsCreated 
+    {
+        get { return totalShipmentsCreated; }
+    }
     public DeliveryAddress? Destination { get; set; }
 
     public string? TrackingCode
