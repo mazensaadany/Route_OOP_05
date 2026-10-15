@@ -1,12 +1,12 @@
 ﻿namespace Route_OOP_05;
-public class Shipment
+public partial class Shipment:ITrackable,IInsurable
 {
     #region fields
-    private string? trackingCode;
     private string? description;
     private decimal weight;
     private decimal deliveryFee;
     private static int totalShipmentsCreated=0;
+    private string shipmentType;
     #endregion
 
     #region constructors
@@ -50,23 +50,8 @@ public class Shipment
     {
         get { return totalShipmentsCreated; }
     }
+
     public DeliveryAddress? Destination { get; set; }
-
-    public string? TrackingCode
-    {
-        get
-        {
-            return trackingCode;
-        }
-
-        set
-        {
-            if (value != null && value != "" && value != " ")
-            {
-                trackingCode = value;
-            }
-        }
-    }
 
     public string Description
     {
@@ -116,6 +101,10 @@ public class Shipment
     }
 
     public virtual decimal EstimatedCost { get; }
+
+    public virtual string ShipmentType => "general";
+
+    public decimal Insurance { get; set; }
     #endregion
 
     #region methods
@@ -187,6 +176,14 @@ public class Shipment
     {
         return TotalShipmentsCreated;
     }
+
+    public decimal CalculateInsurance()
+    {
+        return Insurance;
+    }
+
+    partial void OnTrackingStatusChanged(string newStatus);
+  
     #endregion
 }
 

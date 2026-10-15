@@ -8,6 +8,10 @@ public class PriorityInternationalShipment : InternationalShipment
     }
     #endregion
 
+    #region properties
+    public override string ShipmentType => "Priority Internationa";
+    #endregion
+
     #region methods
     public sealed override void GenerateCustomsReport()
     {

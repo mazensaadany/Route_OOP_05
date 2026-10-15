@@ -102,7 +102,7 @@ internal class Program
         Console.WriteLine("-----------------");
         Console.WriteLine($"New Copied Shipment Address : {ShallowShip.Destination?.City}");
         #endregion
-        Console.WriteLine("======================================");
+        DeliveryUtilities.PrintSeparator();
         #region practical 3
         Shipment shipment02 = new Shipment()
         {
@@ -125,7 +125,7 @@ internal class Program
         bool sameAddressObject2 = ReferenceEquals(shipment02.Destination, DeepCopiedShip.Destination);
         Console.WriteLine($"Same DeliveryAddress Object : {sameAddressObject2}");
         #endregion
-        Console.WriteLine("======================================");
+        DeliveryUtilities.PrintSeparator();
         #region practical 4
         Shipment shipment_01 = new Shipment();
         StandardShipment shipment_02 = new StandardShipment();
@@ -133,11 +133,24 @@ internal class Program
 
         Console.WriteLine($"Total Shipments Created : {Shipment.TotalShipmentsCreated}");
         #endregion
-        Console.WriteLine("======================================");
+        DeliveryUtilities.PrintSeparator();
         #region practical 6
         Console.WriteLine($"Total Shipments Created :{Shipment.GetTotalShipmentsCreated()}");
         #endregion
-        Console.WriteLine("======================================");
-        
+        DeliveryUtilities.PrintSeparator();
+        #region practical 8
+        ship01.GetSummary();
+        ship01.IsDelivered();
+        #endregion
+        DeliveryUtilities.PrintSeparator();
+        #region practical 10
+        Shipment myShipment = new Shipment()
+        { 
+            TrackingCode = "865",
+            TrackingStatus = "in stock"
+        };
+
+        myShipment.UpdateTrackingStatus("out for delivery");
+        #endregion
     }
 }

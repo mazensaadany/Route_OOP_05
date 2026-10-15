@@ -36,6 +36,8 @@ public class ExpressShipment:Shipment, IInsurable, ITrackable
         get { return DeliveryFee + (Weight * 5)+ExtraFee; }
 
     }
+
+    public override string ShipmentType => "Express";
     #endregion
 
     #region methods

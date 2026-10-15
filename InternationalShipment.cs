@@ -45,6 +45,8 @@ public class InternationalShipment:Shipment, IInsurable, ITrackable
     {
         get { return DeliveryFee + (Weight * 5) + CustomsFee; }
     }
+
+    public override string ShipmentType => "International";
     #endregion
 
     #region methods

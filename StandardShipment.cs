@@ -20,6 +20,9 @@ public class StandardShipment : Shipment, IInsurable, ITrackable
             return DeliveryFee + (Weight * 5);
         }
     }
+
+    public override string ShipmentType => "standard";
+
     #endregion
 
     #region methods
@@ -44,6 +47,7 @@ public class StandardShipment : Shipment, IInsurable, ITrackable
     {
         return EstimatedCost * 0.05m; // 5% of the estimated cost
     }
+
     #endregion
 }
 
